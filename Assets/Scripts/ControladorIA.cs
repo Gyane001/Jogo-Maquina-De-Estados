@@ -27,14 +27,13 @@ public class ControladorIA : MonoBehaviour
         switch (estadoAtual)
         {
             case Estados.Esperar:
-                if (EsperouTempoSuficiente())
-                {
+                if (EsperouTempoSuficiente()){
 
                 }
-                else
-                {
+                else{
                     alvo = transform;
                 }
+
                 break;
             case Estados.Patrulhar:
                 break;
@@ -48,6 +47,15 @@ public class ControladorIA : MonoBehaviour
         aICharacterControl.target = alvo;
 
     }
+
+    void Esperar()
+    {
+        estadoAtual = Estados.Esperar;
+
+        tempoEsperando = Time.time;
+    }
+
+
     [Header("Estado: Esperar")]
     public float tempoEsperar = 2f;
     private float tempoEsperando;
